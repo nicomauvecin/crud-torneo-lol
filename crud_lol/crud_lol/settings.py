@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'crud_lol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'torneo_lol',
+        'NAME': 'crud_lol',
         'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
