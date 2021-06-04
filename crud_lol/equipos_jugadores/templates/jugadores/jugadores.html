@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jugadores | Torneo LoL</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand text-center" href="{% url 'index' %}">
+            Jugadores | Torneo LoL
+        </a>
+        <div class="botonera justify-center">
+            <a href="{% url 'agregar-jugador' %}"><button type="button" class="btn btn-success">Agregar Jugador</button></a>
+        </div>
+    </nav>
+    <br>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Posición</th>
+                        <th scope="col">Estadisticas</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for j in jugadores %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{j.usuario}}</td>
+                        <td>{{j.posicion}}</td>
+                        <td><a href="https://las.op.gg/summoner/userName={{j.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                        <td><a href="/detalle_jugador/{{j.id}}"><button type="button" class="btn btn-info">Info</button></a></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a href="{% url 'index' %}"><button class="btn btn-info">Volver al Inicio</button></a>
+            </div>
+            <br>
+        </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

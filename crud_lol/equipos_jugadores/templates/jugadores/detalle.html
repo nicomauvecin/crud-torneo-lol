@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{jugador.usuario}} | Torneo LoL</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand text-center" href="{% url 'index' %}">
+            {{jugador.usuario}} | Torneo LoL
+        </a>
+        <div class="botonera justify-center">
+            <a href="/editar_jugador/{{jugador.id}}"><button type="button" class="btn btn-primary">Editar Jugador</button></a>
+            <a href="/borrar_jugador/{{jugador.id}}"><button type="button" class="btn btn-danger">Borrar Jugador</button></a>
+        </div>
+    </nav>
+    <br>
+    <div class="container text-center">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Posicion</th>
+                    <th scope="col">K/D/A</th>
+                    <th scope="col">Estadisticas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{jugador.usuario}}</td>
+                    <td>{{jugador.nombre}} {{jugador.apellido}}</td>
+                    <td>{{jugador.edad}}</td>
+                    <td>{{jugador.posicion}}</td>
+                    <td>{{jugador.K}}/{{jugador.D}}/{{jugador.A}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{jugador.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+
+            </tbody>
+        </table>
+        <div class="botonera text-center">
+            <div class="volver-inicio">
+                <a href="{% url 'index' %}"><button type="button" class="btn btn-info">Volver al Inicio</button></a>
+                <a href="{% url 'jugadores' %}"><button type="button" class="btn btn-info">Volver Atras</button></a>
+            </div>
+        </div>
+    </div>
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

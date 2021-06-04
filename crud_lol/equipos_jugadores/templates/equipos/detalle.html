@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{equipo.nombre}} | Torneo LoL</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand text-center" href="{% url 'index' %}">
+            {{equipo.nombre}} | Torneo LoL
+        </a>
+        <div class="botonera justify-center">
+            <a href="/editar_equipo/{{equipo.id}}"><button type="button" class="btn btn-primary">Editar Equipo</button></a>
+            <a href="/borrar_equipo/{{equipo.id}}"><button type="button" class="btn btn-danger">Borrar Equipo</button></a>
+        </div>
+    </nav>
+    <br>
+    <div class="container text-center">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Estadisticas</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{equipo.jugador1}}</td>
+                    <td>{{equipo.jugador1.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.jugador1.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.jugador1.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.jugador1.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.jugador1.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{equipo.jugador2}}</td>
+                    <td>{{equipo.jugador2.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.jugador2.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.jugador2.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.jugador2.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.jugador2.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>{{equipo.jugador3}}</td>
+                    <td>{{equipo.jugador3.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.jugador3.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.jugador3.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.jugador3.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.jugador3.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>{{equipo.jugador4}}</td>
+                    <td>{{equipo.jugador4.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.jugador4.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.jugador4.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.jugador4.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.jugador4.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>{{equipo.jugador5}}</td>
+                    <td>{{equipo.jugador5.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.jugador5.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.jugador5.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.jugador5.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.jugador5.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                {% if equipo.suplente %}
+                <tr>
+                    <th scope="row">6</th>
+                    <td>{{equipo.suplente}}</td>
+                    <td>{{equipo.suplente.posicion}}</td>
+                    <td><a href="https://las.op.gg/summoner/userName={{equipo.suplente.usuario}}"><img src="https://d1506sp6x4e9z7.cloudfront.net/gamasutra/uploads/1035771.png" width="30" alt=""></a></td>
+                    <td style="text-align:center;">
+                        <a href="/detalle_jugador/{{equipo.suplente.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                        <a href="/editar_jugador/{{equipo.suplente.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="/borrar_jugador/{{equipo.suplente.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+                {% endif %}
+
+            </tbody>
+        </table>
+        <div class="botonera text-center">
+            <div class="volver-inicio">
+                <a href="{% url 'index' %}"><button type="button" class="btn btn-info">Volver al Inicio</button></a>
+            </div>
+        </div>
+    </div>
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
