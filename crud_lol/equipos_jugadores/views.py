@@ -69,11 +69,11 @@ def editar_jugador(request, id):
             return redirect('index')
     else:
         formaJugador = JugadorForm(instance=jugador)
-    return render(request, 'equipos/editar.html', {'formaJugador': formaJugador})
+    return render(request, 'jugadores/editar.html', {'formaJugador': formaJugador})
 
 
 def borrar_jugador(request, id):
     jugador = get_object_or_404(Jugador, pk=id)
     if jugador:
         jugador.delete()
-    return redirect('index')
+    return redirect('jugadores')
