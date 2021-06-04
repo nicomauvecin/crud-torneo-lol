@@ -50,7 +50,7 @@ def agregar_jugador(request):
         formaJugador = JugadorForm(request.POST)
         if formaJugador.is_valid():
             formaJugador.save()
-            return redirect('index')
+            return redirect('jugadores')
     else:
         formaJugador = JugadorForm()
     return render(request, 'jugadores/agregar.html', {'formaJugador': formaJugador})
