@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Torneo LoL</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand text-center" href="#">
+        Torneo LoL
+      </a>
+        <div class="botonera">
+            <a href="{% url 'agregar-equipo' %}"><button type="button" class="btn btn-success">Agregar Equipo</button></a>
+            <a href="{% url 'jugadores' %}"><button type="button" class="btn btn-primary">Ver Jugadores</button></a>
+        </div>
+    </nav>
+    <div class="container">
+        <div>
+            <br>
+        </div>
+        <div class="col">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>PJ</th>
+                        <th>PG</th>
+                        <th>PP</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in equipos %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{e.nombre}}</a></td>
+                            <td>{{e.PJ}}</td>
+                            <td>{{e.PG}}</td>
+                            <td>{{e.PP}}</td>
+                            <td style="text-align:center;">
+                                <a href="detalle_equipo/{{e.id}}"><button type="button" class="btn btn-info">Info</button></a>
+                                <a href="editar_equipo/{{e.id}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                                <a href="borrar_equipo/{{e.id}}"><button type="button" class="btn btn-danger">Borrar</button></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% bootstrap_javascript jquery='full' %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
