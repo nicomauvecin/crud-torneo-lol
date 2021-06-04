@@ -16,6 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from equipos_jugadores.views import detalle_equipo, editar_equipo, borrar_equipo, agregar_equipo, jugadores, agregar_jugador, \
+    detalle_jugador, editar_jugador, borrar_jugador
+from webapp.views import inicio
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', inicio, name='index'),
+    path('detalle_equipo/<int:id>', detalle_equipo),
+    path('editar_equipo/<int:id>', editar_equipo),
+    path('borrar_equipo/<int:id>', borrar_equipo),
+    path('agregar_equipo/', agregar_equipo, name='agregar-equipo'),
+    path('jugadores/', jugadores, name='jugadores'),
+    path('agregar_jugador/', agregar_jugador, name='agregar-jugador'),
+    path('detalle_jugador/<int:id>', detalle_jugador),
+    path('editar_jugador/<int:id>', editar_jugador),
+    path('borrar_jugador/<int:id>', borrar_jugador)
 ]
