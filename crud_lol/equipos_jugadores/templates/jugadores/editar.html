@@ -21,6 +21,7 @@
       {% csrf_token %}
   </form>
     <br>
+    <a href="{% url 'jugadores' %}"><button class="btn btn-primary">Volver Atras</button></a>
     <a href="{% url 'index' %}"><button class="btn btn-primary">Volver al Inicio</button></a>
 </div>
 {% bootstrap_javascript jquery='full' %}
